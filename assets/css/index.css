@@ -1,0 +1,29 @@
+.container{
+      width: 100%;
+      margin: auto;
+}
+
+.header{
+      width: 100%;
+}
+.header img{
+      width: 100%;
+
+}
+.header h1{
+      color: #ffffff;
+      font-size: 3rem;
+      font-weight: bold;
+      font-family: 'comforta';
+      position: absolute;
+      top: 14%;
+      left: 43%;
+}
+
+
+@media screen and (min-width: 992px) {
+      .container {
+        max-width: 1200px;
+      }
+}
+    
