@@ -5,7 +5,7 @@ const select = document.getElementById('select');
 const noOfLitres = document.getElementById('no-of-litres');
 const add = document.getElementById('add');
 const submit = document.getElementById('submit');
-
+const p = document.getElementById('p');
 //initialise variables
 let sheds = {};
 
@@ -32,6 +32,7 @@ function generateSelect(noOfSheds) {
 }
 
 add.addEventListener('click', function() {
+      p.innerHTML = ""
       if (noOfLitres.value && select.value != ""){
             let row = document.createElement('tr');
             let td1 = document.createElement('td');
@@ -41,6 +42,9 @@ add.addEventListener('click', function() {
             row.appendChild(td1);
             row.appendChild(td2);
             table.appendChild(row);
+            sheds[select.value] = noOfLitres.value;
+            noOfLitres.value = "";
+            
       } 
 });
 
