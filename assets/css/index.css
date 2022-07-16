@@ -5,19 +5,22 @@
 
 .header{
       width: 100%;
+      height:fit-content;
 }
 .header img{
       width: 100%;
+      height: inherit;
+      max-height: 200px;
 
 }
 .header h1{
       color: #ffffff;
-      font-size: 3rem;
+      font-size: 5rem;
       font-weight: bold;
       font-family: 'comforta';
       position: absolute;
-      top: 14%;
-      left: 43%;
+      top: 1%;
+      left: 38%;
 }
 
 
