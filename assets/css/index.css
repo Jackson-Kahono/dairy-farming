@@ -73,6 +73,12 @@ tr,td,th{
       padding: 1rem;
 }
 
+.form{
+      width:40%;
+      margin:auto;
+      padding-top: 10vh;
+}
+
 @media screen and (min-width: 992px) {
       .container {
         max-width: 1500px;
