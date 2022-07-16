@@ -33,7 +33,7 @@
             </div>
             <div class="records">
                   <h2>Your records</h2>
-                  <table>
+                  <table id="table">
                         <tr>
                               Your records will be displayed here.
                         </tr>
@@ -43,16 +43,14 @@
             <div class="form">
                   <h2>Add records</h2>
                   <form>
-                       <div> How many sheds do you have<input type="number" name="" id=""></div>
+                       <div> How many sheds do you have<input type="number" name="" id="no-of-sheds" placeholder="Not greater than 26"></div>
                        <h2>Litres per shed:</h2>
                        <div>
-                        <select name="" id="">
-                              <option value="">Shed A</option>
-                              <option value="">Shed B</option>
-                        </select> <input type="text" id="">
+                        <select name="" id="select">
+                        </select> <input type="number" id="no-of-litres">
                   </div>
-                  <div><input type="button" value="+Add" id=""></div>
-                  <div><input type="submit" value="Submit" id=""></div>
+                  <div><input type="button" value="+Add" id="add"></div>
+                  <div><input type="submit" value="Submit" id="submit"></div>
 
 
 
@@ -61,6 +59,7 @@
 
 
       </div>
+      <script src="assets/js/index.js"></script>
 </body>
 
 </html>
