@@ -57,6 +57,7 @@
 .records{
       margin-top: 20vh;
       margin-left: 5vw;
+      margin-bottom: 5vh;
 }
 
 table{
@@ -74,9 +75,36 @@ tr,td,th{
 }
 
 .form{
+      font-size: large;
       width:40%;
       margin:auto;
-      padding-top: 10vh;
+      padding: 10rem;
+      background-color: rgb(234, 237, 231);
+      box-sizing: calc(100% - 2rem);
+}
+.form div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2vh;
+
+}
+.form div:last-child{
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0;
+}
+input[type="number"], input[type="text"],input[type="select"],select,input[type="button"]{
+      width: 10rem;
+      height: 2rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      font-size: 1rem;
+}
+input[type="button"]{
+      color: #ffffff;
+      background-color: rgb(8, 165, 8);;
 }
 
 @media screen and (min-width: 992px) {
