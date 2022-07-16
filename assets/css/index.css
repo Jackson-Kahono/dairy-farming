@@ -54,6 +54,25 @@
       border-radius: 20px;
 }
 
+.records{
+      margin-top: 20vh;
+      margin-left: 5vw;
+}
+
+table{
+      font-size: larger;
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #ddd;
+}
+tr,td,th{
+      text-align: center;
+      border-collapse: collapse;
+      border:1px solid black;
+      padding: 1rem;
+}
+
 @media screen and (min-width: 992px) {
       .container {
         max-width: 1500px;
