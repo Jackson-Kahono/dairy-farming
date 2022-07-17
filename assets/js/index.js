@@ -13,6 +13,7 @@ const form = document.querySelector(".form");
 const dispGeneral = document.querySelector(".disp-general");
 const dispMonthly = document.querySelector(".disp-monthly");
 const totalP = document.querySelector('.total');
+const compareBtn = document.querySelector(".compare-btn");
 
 
 displayBody.style.display = "none";
@@ -118,10 +119,13 @@ submit.addEventListener('click', function (e) {
       dispGeneral.appendChild(p1);
       displayBody.style.display = "block";
       form.style.display = "none";
-      monthlyIncome(totalNoOfLiters);
+      monthlyIncome(price,totalNoOfLiters);
 
 });
-
+formBtn.addEventListener('click', function () {
+      form.style.display = "block";
+      displayBody.style.display = "none";
+});
 function monthlyIncome(price,litres) {
       for (let key in months) {
             let p = document.createElement("p");

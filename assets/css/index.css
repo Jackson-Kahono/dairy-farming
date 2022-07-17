@@ -78,12 +78,14 @@ th{
       text-align: center;
 }
 
-.form-btn{
+.form-btn,span{
       color:white;
+      font-size: 13px;
       font-weight: bold;
       padding: 0.5rem 1rem;
       background-color: rgb(8, 165, 8);
       border-radius: 5px;
+      cursor: pointer;
 }
 .display div{
       font-weight: bold;
@@ -144,6 +146,12 @@ input[type="submit"]{
       font-size: 1rem;
       padding: 0.5rem;
 }
+.compare div:first-child{
+      display: flex;
+      justify-content: center;
+      margin-top:5vh;
+}
+
 
 @media screen and (min-width: 992px) {
       .container {
