@@ -8,6 +8,8 @@ const submit = document.getElementById('submit');
 const p = document.getElementById('p');
 //initialise variables
 let sheds = {};
+const price = 45;
+
 
 noOfSheds.addEventListener('keyup', function() {
       if (noOfSheds.value > 26) {
@@ -15,14 +17,13 @@ noOfSheds.addEventListener('keyup', function() {
       }
       setTimeout(() => {
             generateSelect(noOfSheds.value);
-            noOfSheds.style.display = 'none';
+            noOfSheds.disable = true;
       }, 6000); 
 });
 
 function generateSelect(noOfSheds) {
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       let alphabetArray = alphabet.split('');
-      let alphabetArrayLength = alphabetArray.length;
       for (let i = 0; i < noOfSheds; i++) {
             let option = document.createElement('option');
             option.value = alphabetArray[i];
@@ -34,6 +35,7 @@ function generateSelect(noOfSheds) {
 add.addEventListener('click', function() {
       p.innerHTML = ""
       if (noOfLitres.value && select.value != ""){
+            if(!sheds[select.value]) {
             let row = document.createElement('tr');
             let td1 = document.createElement('td');
             let td2 = document.createElement('td');
@@ -44,7 +46,15 @@ add.addEventListener('click', function() {
             table.appendChild(row);
             sheds[select.value] = noOfLitres.value;
             noOfLitres.value = "";
+            }
+            else {
+                  alert("Shed already exists");
+                  select.value = "";
+                  noOfLitres.value = "";
+            }
             
       } 
 });
+
+
 
