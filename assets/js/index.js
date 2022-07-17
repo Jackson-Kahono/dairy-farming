@@ -12,6 +12,7 @@ const formBtn = document.querySelector(".form-btn");
 const form = document.querySelector(".form");
 const dispGeneral = document.querySelector(".disp-general");
 const dispMonthly = document.querySelector(".disp-monthly");
+const totalP = document.querySelector('.total');
 
 
 displayBody.style.display = "none";
@@ -100,9 +101,10 @@ submit.addEventListener('click', function (e) {
       // let totalIncome = 0;
       let totalNoOfLiters = 0;
       for (let key in sheds) {
-            totalNoOfLiters += sheds[key];
+            totalNoOfLiters += parseInt(sheds[key]);
       }
       totalProduction();
+      totalP.innerHTML = `Your total production is ${totalNoOfLiters} Litres`;
       totalWeekIncome = incomeOverTime(price, 7, totalNoOfLiters);
       totalYearIncome = incomeOverTime(price, 366, totalNoOfLiters);
       let p = document.createElement("p");
@@ -117,14 +119,21 @@ submit.addEventListener('click', function (e) {
       displayBody.style.display = "block";
       form.style.display = "none";
       monthlyIncome(totalNoOfLiters);
+
 });
 
-function monthlyIncome(litres) {
+function monthlyIncome(price,litres) {
       for (let key in months) {
             let p = document.createElement("p");
             p.innerHTML = `Your Monthly income for ${key} is ${incomeOverTime(price, months[key], litres)}`;
             dispMonthly.appendChild(p);
       }
+}
+
+function monthlyCompare(price1,price2,litres){
+      let p = document.createElement("p");
+      p.innerHTML = `Your price difference `
+      dispMonthly.appendChild(p);
 }
 
 
