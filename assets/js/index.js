@@ -6,6 +6,13 @@ const noOfLitres = document.getElementById('no-of-litres');
 const add = document.getElementById('add');
 const submit = document.getElementById('submit');
 const p = document.getElementById('p');
+const displayBody = document.querySelector(".display");
+const disp = document.querySelector(".disp");
+const formBtn = document.querySelector(".form-btn");
+
+
+table.style.display = "none";
+
 //initialise variables
 let sheds = {};
 const price = 45;

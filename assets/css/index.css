@@ -65,9 +65,38 @@ table{
 }
 tr,td,th{
       text-align: center;
+      font-weight: bold;
       border-collapse: collapse;
       border:1px solid black;
       padding: 1rem;
+}
+th{
+      font-size: 2rem;
+}
+.display{
+      height:fit-content;
+      text-align: center;
+}
+
+.form-btn{
+      color:white;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      background-color: rgb(8, 165, 8);
+      border-radius: 5px;
+}
+.display div{
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      background-color: lightgray;
+      border-radius: 10px;
+      margin-bottom: 2vh;
+}
+.display div:first-child{
+      display: flex;
+      justify-content: flex-end;
+      background-color: white;
 }
 
 .form{
