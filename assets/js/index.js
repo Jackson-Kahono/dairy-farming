@@ -9,10 +9,12 @@ const p = document.getElementById('p');
 const displayBody = document.querySelector(".display");
 const disp = document.querySelector(".disp");
 const formBtn = document.querySelector(".form-btn");
+const form = document.querySelector(".form");
+const dispGeneral = document.querySelector(".disp-general");
+const dispMonthly = document.querySelector(".disp-monthly");
 
 
-table.style.display = "none";
-
+displayBody.style.display = "none";
 //initialise variables
 let sheds = {};
 const price = 45;
@@ -58,6 +60,14 @@ add.addEventListener('click', function () {
       p.innerHTML = ""
       if (noOfLitres.value && select.value != "") {
             if (!sheds[select.value]) {
+                  let row = document.createElement('tr');
+                  let td1 = document.createElement('td');
+                  let td2 = document.createElement('td');
+                  td1.innerHTML = `Shed ${select.value}`;
+                  td2.innerHTML = `${noOfLitres.value} Litres`
+                  row.appendChild(td1);
+                  row.appendChild(td2);
+                  table.appendChild(row);
                   sheds[select.value] = noOfLitres.value;
                   noOfLitres.value = "";
             }
@@ -72,15 +82,10 @@ add.addEventListener('click', function () {
 
 function totalProduction() {
       for (let key in sheds) {
-            let row = document.createElement('tr');
-            let td1 = document.createElement('td');
-            let td2 = document.createElement('td');
-            td1.innerHTML = `Shed ${key}`;
-            td2.innerHTML = `${sheds[key]} Litres`
-            row.appendChild(td1);
-            row.appendChild(td2);
-            table.appendChild(row);
+
       }
+      // let td = row.appendChild("td")
+      // td.innerHTML = `Total ${litres}`
 }
 //function incomeOverTime(sellingPrice,time)
 function incomeOverTime(sellingPrice, time, noOfLitres) {
@@ -92,18 +97,35 @@ function incomeOverTime(sellingPrice, time, noOfLitres) {
 submit.addEventListener('click', function (e) {
       e.preventDefault();
       totalProduction();
-      let totalIncome = 0;
+      // let totalIncome = 0;
       let totalNoOfLiters = 0;
       for (let key in sheds) {
             totalNoOfLiters += sheds[key];
       }
-      console.log(sheds)
-      totalIncome = incomeOverTime(price, 1, totalNoOfLiters);
+      totalProduction();
+      totalWeekIncome = incomeOverTime(price, 7, totalNoOfLiters);
+      totalYearIncome = incomeOverTime(price, 366, totalNoOfLiters);
+      let p = document.createElement("p");
+      // p.innerHTML = `Your Income for today is ${totalDayIncome}`;
+
+      p.innerHTML = `Your Weekly income is  ${totalWeekIncome}`;
+      dispGeneral.appendChild(p);
+      let p1 = document.createElement("p")
+      p1.innerHTML = `Your Yearly income is ${totalYearIncome}`;
+
+      dispGeneral.appendChild(p1);
+      displayBody.style.display = "block";
+      form.style.display = "none";
+      monthlyIncome(totalNoOfLiters);
 });
 
-// function allYearIncome() {
-
-// }
+function monthlyIncome(litres) {
+      for (let key in months) {
+            let p = document.createElement("p");
+            p.innerHTML = `Your Monthly income for ${key} is ${incomeOverTime(price, months[key], litres)}`;
+            dispMonthly.appendChild(p);
+      }
+}
 
 
 

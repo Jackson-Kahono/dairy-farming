@@ -87,9 +87,9 @@ th{
 }
 .display div{
       font-weight: bold;
-      display: flex;
-      justify-content: center;
+      /* display: flex; */
       background-color: lightgray;
+      padding: 1rem;
       border-radius: 10px;
       margin-bottom: 2vh;
 }
