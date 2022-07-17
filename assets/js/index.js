@@ -14,8 +14,9 @@ const dispGeneral = document.querySelector(".disp-general");
 const dispMonthly = document.querySelector(".disp-monthly");
 const totalP = document.querySelector('.total');
 const compareBtn = document.querySelector(".compare-btn");
+const compare = document.querySelector(".compare");
 
-
+let totalNoOfLiters = 0;
 displayBody.style.display = "none";
 //initialise variables
 let sheds = {};
@@ -100,7 +101,7 @@ submit.addEventListener('click', function (e) {
       e.preventDefault();
       totalProduction();
       // let totalIncome = 0;
-      let totalNoOfLiters = 0;
+
       for (let key in sheds) {
             totalNoOfLiters += parseInt(sheds[key]);
       }
@@ -119,26 +120,60 @@ submit.addEventListener('click', function (e) {
       dispGeneral.appendChild(p1);
       displayBody.style.display = "block";
       form.style.display = "none";
-      monthlyIncome(price,totalNoOfLiters);
+      monthlyIncome(price, totalNoOfLiters);
 
 });
 formBtn.addEventListener('click', function () {
       form.style.display = "block";
       displayBody.style.display = "none";
 });
-function monthlyIncome(price,litres) {
+function monthlyIncome(price, litres,) {
       for (let key in months) {
             let p = document.createElement("p");
             p.innerHTML = `Your Monthly income for ${key} is ${incomeOverTime(price, months[key], litres)}`;
             dispMonthly.appendChild(p);
       }
 }
+compareBtn.addEventListener('click', function () {
 
-function monthlyCompare(price1,price2,litres){
-      let p = document.createElement("p");
-      p.innerHTML = `Your price difference `
-      dispMonthly.appendChild(p);
-}
+      displayBody.style.display = "none";
+      form.style.display = "none";
+
+      const newPrice = document.getElementById('price-change').value;
+      if (!newPrice) {
+            alert("Please enter a price");
+      }
+      else {
+            let tb = document.createElement('table');
+            compare.appendChild(tb);
+            let tr = document.createElement('tr');
+            let th1 = document.createElement('th');
+            let th2 = document.createElement('th');
+            let th3 = document.createElement('th');
+            let th4 = document.createElement('th');
+
+            th1.innerHTML = "Month"
+            th2.innerHTML = "Old Price"
+            th3.innerHTML = "New Price"
+            th4.innerHTML = "difference"
+
+
+            for (let key in months) {
+                  let tr = document.createElement('tr');
+                  let td1 = document.createElement('td');
+                  let td2 = document.createElement('td');
+                  let td3 = document.createElement("td")
+                  let td4 = document.createElement("td4")
+                  td1.innerHTML = `${key}`;
+                  td2.innerHTML = `${incomeOverTime(price, months[key], totalNoOfLiters)}`;
+                  td3.innerHTML = `${incomeOverTime(newPrice, months[key], totalNoOfLiters)}`;
+                  td4.innerHTML = `${incomeOverTime(newPrice, months[key], totalNoOfLiters) - incomeOverTime(price, months[key], totalNoOfLiters)}`
+                  tr.appendChild(td1);
+                  tb.appendChild(tr);
+
+            }
+      }
+});
 
 
 
