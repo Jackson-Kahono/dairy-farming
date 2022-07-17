@@ -136,14 +136,15 @@ function monthlyIncome(price, litres,) {
 }
 compareBtn.addEventListener('click', function () {
 
-      displayBody.style.display = "none";
-      form.style.display = "none";
+
 
       const newPrice = document.getElementById('price-change').value;
       if (!newPrice) {
             alert("Please enter a price");
       }
       else {
+            displayBody.style.display = "none";
+            form.style.display = "none";
             let tb = document.createElement('table');
             compare.appendChild(tb);
             let tr = document.createElement('tr');
@@ -156,6 +157,10 @@ compareBtn.addEventListener('click', function () {
             th2.innerHTML = "Old Price"
             th3.innerHTML = "New Price"
             th4.innerHTML = "difference"
+            tb.appendChild(th1);
+            tb.appendChild(th2);
+            tb.appendChild(th3);
+            tb.appendChild(th4);
 
 
             for (let key in months) {
@@ -169,6 +174,9 @@ compareBtn.addEventListener('click', function () {
                   td3.innerHTML = `${incomeOverTime(newPrice, months[key], totalNoOfLiters)}`;
                   td4.innerHTML = `${incomeOverTime(newPrice, months[key], totalNoOfLiters) - incomeOverTime(price, months[key], totalNoOfLiters)}`
                   tr.appendChild(td1);
+                  tr.appendChild(td2);
+                  tr.appendChild(td3);
+                  tr.appendChild(td4)
                   tb.appendChild(tr);
 
             }

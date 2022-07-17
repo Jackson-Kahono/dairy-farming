@@ -95,7 +95,7 @@ th{
       border-radius: 10px;
       margin-bottom: 2vh;
 }
-.display div:first-child{
+.form-l{
       display: flex;
       justify-content: flex-end;
       background-color: white;
